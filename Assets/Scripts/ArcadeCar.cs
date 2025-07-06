@@ -12,7 +12,7 @@ public class ArcadeCar : MonoBehaviour
     const int WHEEL_RIGHT_INDEX = 1;
 
     const float wheelWidth = 0.085f;
-
+    //private GameRestartManager restartManager;
 
     public class WheelData
     {
@@ -257,7 +257,7 @@ public class ArcadeCar : MonoBehaviour
     void Start()
     {
 
-
+        //restartManager = FindObjectOfType<GameRestartManager>();
         style.normal.textColor = Color.red;
 
         rb = GetComponent<Rigidbody>();
@@ -275,6 +275,8 @@ public class ArcadeCar : MonoBehaviour
         ApplyVisual();
         CalculateAckermannSteering();
     }
+
+    
 
     float GetHandBrakeK()
     {
@@ -720,12 +722,12 @@ public class ArcadeCar : MonoBehaviour
         float speedKmH = speed * 3.6f;
         GUI.Label(new Rect(30.0f, 20.0f, 150, 130), string.Format("{0:F2} km/h", speedKmH), style);
 
-        GUI.Label(new Rect(30.0f, 40.0f, 150, 130), string.Format("{0:F2} {1:F2} {2:F2}", afterFlightSlipperyTiresTime, brakeSlipperyTiresTime, handBrakeSlipperyTiresTime), style);
+       // GUI.Label(new Rect(30.0f, 40.0f, 150, 130), string.Format("{0:F2} {1:F2} {2:F2}", afterFlightSlipperyTiresTime, brakeSlipperyTiresTime, handBrakeSlipperyTiresTime), style);
 
         float yPos = 60.0f;
         for (int axleIndex = 0; axleIndex < axles.Length; axleIndex++)
         {
-            GUI.Label(new Rect(30.0f, yPos, 150, 130), string.Format("Axle {0}, steering angle {1:F2}", axleIndex, axles[axleIndex].steerAngle), style);
+            //GUI.Label(new Rect(30.0f, yPos, 150, 130), string.Format("Axle {0}, steering angle {1:F2}", axleIndex, axles[axleIndex].steerAngle), style);
             yPos += 18.0f;
         }
 
