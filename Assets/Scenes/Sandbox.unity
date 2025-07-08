@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 2
   m_FogDensity: 0.09
@@ -1436,7 +1436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &170076734
 Light:
   m_ObjectHideFlags: 0
@@ -1838,6 +1838,9 @@ MonoBehaviour:
   carRb: {fileID: 902423376}
   checkpointImage: {fileID: 1523286982}
   checkpointZ: 378.7297
+  bestTimeText: {fileID: 0}
+  checkpointID: 0
+  gameRestartManager: {fileID: 0}
 --- !u!65 &191345991
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3769,7 +3772,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.08677464, g: 0.089716576, b: 0.09433961, a: 0}
+  m_BackGroundColor: {r: 0.50980395, g: 0.5058824, b: 0.5058824, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -9558,7 +9561,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f8a38363a0c89ba41ab3eb86d80562b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3c96c12519e5764481e071d75dfbd81, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11988,7 +11991,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6a8bed1459809fe4fb8597e73eb18c79, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee8c45f489fd6424bba25631b2390b6b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
