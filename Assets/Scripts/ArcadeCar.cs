@@ -13,6 +13,7 @@ public class ArcadeCar : MonoBehaviour
 
     const float wheelWidth = 0.085f;
     //private GameRestartManager restartManager;
+    private CarMobileController carMobileController;
 
     public class WheelData
     {
@@ -256,12 +257,14 @@ public class ArcadeCar : MonoBehaviour
 
     void Start()
     {
-
+        //carMobileController = GetComponent<CarMobileController>();
         //restartManager = FindObjectOfType<GameRestartManager>();
         style.normal.textColor = Color.red;
 
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = centerOfMass;
+
+        //mobileInputOverride = GetComponent<MobileInputOverride>();
     }
 
     void OnValidate()
@@ -430,9 +433,27 @@ public class ArcadeCar : MonoBehaviour
 
     void UpdateInput()
     {
-        float v = Input.GetAxis("Vertical");
-        float h = Input.GetAxis("Horizontal");
+        //float v = Input.GetAxis("Vertical");
+        //float h = Input.GetAxis("Horizontal");
         //Debug.Log (string.Format ("H = {0}", h));
+
+        float v, h;
+        bool spaceKey;
+
+        // Check if we have mobile input override
+        if (carMobileController != null)
+        {
+            v = carMobileController.GetMobileVerticalInput();
+            h = carMobileController.GetMobileHorizontalInput();
+            spaceKey = carMobileController.GetMobileHandbrake();
+        }
+        else
+        {
+            // Fallback to standard input
+            v = Input.GetAxis("Vertical");
+            h = Input.GetAxis("Horizontal");
+            spaceKey = Input.GetKey(KeyCode.Space);
+        }
 
         if (!controllable)
         {
@@ -489,7 +510,8 @@ public class ArcadeCar : MonoBehaviour
 
 
         bool isBrakeNow = false;
-        bool isHandBrakeNow = Input.GetKey(KeyCode.Space) && controllable;
+        bool isHandBrakeNow = spaceKey && controllable;
+        //bool isHandBrakeNow = Input.GetKey(KeyCode.Space) && controllable;
 
         float speed = GetSpeed();
         isAcceleration = false;
